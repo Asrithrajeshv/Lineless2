@@ -35,11 +35,11 @@ def webhook():
     adult_count = parameters.get('adultcount')
     child_count = parameters.get('childcount')
 
-    """if not email_address:
+    if not email_address:
         return jsonify({'fulfillmentText': 'Please provide your email address.'})
     
     if not adult_count or not child_count:
-        return jsonify({'fulfillmentText': 'Please provide the number of adults and children.'})"""
+        return jsonify({'fulfillmentText': 'Please provide the number of adults and children.'})
     
     # Convert to integers if they are lists or strings
     try:
