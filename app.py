@@ -6,6 +6,7 @@ import os
 from dotenv import load_dotenv
 from message import create_mail, send_email
 from booking_id import generate_booking_id
+from database import store_booking_data
 
 # Load environment variables from .env file
 load_dotenv()
@@ -59,6 +60,8 @@ def webhook():
     full_phonepe_link = f"{phonepe_payment_link}{total_amount}"
 
     # Send email with the calculated total amount and QR code
+    store_booking_data(email_address, adult_count, child_count, total_amount, booking_id)
+
     send_email(mail, app.config, email_address, adult_count, child_count, cost_per_adult, cost_per_child, total_amount, booking_id, full_phonepe_link)
 
     # Generate QR code for the UPI payment link
